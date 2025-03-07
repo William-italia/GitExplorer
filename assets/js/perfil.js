@@ -23,7 +23,7 @@ const dataUser = await res.json();
     img.src = dataUser.avatar_url
     name.textContent = dataUser.name;
     
-    nick.nodeValue = dataUser.login
+    nick.textContent = dataUser.login
     nick.href = `https://github.com/${dataUser.login}`
     nick.setAttribute('target', '_blank')
 

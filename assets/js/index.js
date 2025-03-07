@@ -10,12 +10,19 @@ const token = "";
 
 // https://api.github.com/users/{username}/repos
 
-function checkForm(e) {
+async function checkForm(e) {
     e.preventDefault();
 
     const user = input.value.trim();
 
-    verifiedUser(user);
+    const isValidUser = await verifiedUser(user);
+
+    if (isValidUser) {
+        cleanMsg();
+        input.value = '';
+        window.location.href = `perfil.html?user=${user}`;
+    }
+
 }
 
 
@@ -26,20 +33,19 @@ const verifiedUser = async (user) => {
             headers: {
                 "Authorization": token
             }
-        })
-        if(!res.ok) {
+        });
 
+        if(!res.ok) {
             msg.classList.remove('hidden');
             input.style.border = '2px solid red';
             throw new Error("Usuário invalido!");
-
-        } else {
-            cleanMsg();
-            window.location.href = `perfil.html?user=${user}`;
         }
+
+        return true;
 
     } catch(e) {
         console.log(e);
+        return false;
     }
 }
 
