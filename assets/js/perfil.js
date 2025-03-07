@@ -2,6 +2,9 @@ const listBio = document.getElementById('list-bio');
 const img = document.getElementById('img');
 const name = document.getElementById('name'); 
 const nick = document.getElementById('login'); 
+const nickLink = document.getElementById('nick-link'); 
+const icongit = document.getElementById('igit');
+
 
 const url = new URLSearchParams(window.location.search);
 const urlGit = "https://api.github.com/";
@@ -17,6 +20,7 @@ const res = await fetch(`${urlGit}users/${user}`, {
 })
 
 const dataUser = await res.json();
+removeload()
 
     console.log(dataUser.login);
 
@@ -29,6 +33,19 @@ const dataUser = await res.json();
 
     createLiBio(dataUser);
 }
+
+function removeload() {
+
+    listBio.replaceChildren();
+    img.classList.remove('hidden');
+    icongit.classList.remove('hidden');
+    name.classList.remove('skeleton-name');
+    nickLink.classList.remove('skeleton-link');
+    nick.classList.remove('skeleton-link');
+}
+
+
+
 
 const getReposUser = async () => {
     const res = await fetch(`${urlGit}users/${user}/repos?sort=update`, {
@@ -144,6 +161,6 @@ function createA() {
     return a;
 }
 
-getUser();
+// getUser();
 // getReposUser();
 

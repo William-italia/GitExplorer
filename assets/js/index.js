@@ -65,15 +65,22 @@ const getRate = async () => {
 
 const getDevs = async () => {
 
-    const res = await fetch(`${url}users?per_page=5`, {
+    const res = await fetch(`${url}users?per_page=30`, {
         headers: {
           "Authorization": token 
         }
       });
 
     const devs = await res.json();
+
+    const shuffledUsers = devs.sort(() => .5 - Math.random());
+    
+    const randomDevs = shuffledUsers.slice(0, 5);
+    
+    console.log(randomDevs);
+
       
-    devs.forEach(dev => {
+    randomDevs.forEach(dev => {
         createDev(dev.login);
     });    
 }
