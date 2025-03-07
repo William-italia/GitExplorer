@@ -12,6 +12,10 @@
     box-sizing: border-box;
 }
 
+img {
+    display: block;
+    width: 100%;
+}
 
 #Explorer {
     color: var(--color-logo);

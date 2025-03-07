@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -38,7 +38,43 @@
 </head>
 
 <body>
+    <header class="flex items-center justify-between w-full bg-[#161B22] h-[60px] px-4 md:px-[390px]">
+        <div class="flex items-center gap-4">
+            <i class="fa-brands fa-square-github text-white text-3xl"></i>
+            <a href="./index.html" class="text-white font-medium text-sm">GitExplorer</a>
+        </div>
+        <form id="form" action="">
+            <input id="search" type="text" placeholder="Insira um nome de usuário"
+                class="transition-color duration-200 hover:boder-[1px] hover:border-blue-300 border-[1px] border-white/0 text-white font-light rounded-lg bg-white/10 placeholder:text-white/12 placeholder:text-sm backdrop-blur-[300px] focus:outline-none focus:border-2 w-[230px] focus:border-blue-300 py-2 pr-3 pl-2 text-sm">
+        </form>
+    </header>
 
+    <main class="w-full md:flex md:px-[390px]">
+        <aside class="">
+            <div id="perfil" class="flex items-center space-y-2 space-x-4 py-6 px-4 border-b-2 border-zinc-100">
+                <div class="w-[80px] h-[80px] rounded-[50%] overflow-hidden">
+                    <img id="img" src="./assets/imgs/barbudo.jpg" alt="" class="w-full h-full">
+                </div>
+                <div class="">
+                    <h1 id="name" class="mb-1 text-[1.25rem] font-[600]">William Italia Nogueira</h1>
+                    <div
+                        class="transition duration-200 hover:bg-zinc-200 inline-block text-zinc-400 rounded-lg hover:text-black/100">
+                        <i class="fa-brands fa-github"></i>
+                        <a id="login" href="#" class=""></a>
+                    </div>
+                </div>
+            </div>
+            <ul id="list-bio">
+
+            </ul>
+        </aside>
+
+        <div>
+            <h1>penis</h1>
+        </div>
+
+    </main>
+    <script src="./assets/js/perfil.js"></script>
 </body>
 
 </html>

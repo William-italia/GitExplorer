@@ -68,21 +68,27 @@
                             class="max-w-[350px] md:max-w-[370px] lg:max-w-[600px] lg:text-5xl lg:leading-[3.8rem] lg:font-bold text-3xl leading-xl font-medium text-white mt-[4rem] sobe-animado">
                             Descubra Desenvolvedores no GitHub de Forma Rápida e Fácil!
                         </h1>
-
                         <!-- Search Bar -->
-                        <div class="w-full mt-[3.8rem] flex flex-col md:flex-row items-center gap-4 sobe-animado">
-                            <input id="input"
-                                class="transition-color duration-200 hover:border-white/10 border-[1px] border-white/0 w-full py-3 px-4 font-regular rounded-lg bg-white/10 placeholder:text-white/12 backdrop-blur-[300px] focus:outline-none focus:placeholder:text-black focus:bg-white md:w-[300px]"
-                                type="text" placeholder="Digite um nome de usuário..">
-                            <button id="search"
+                        <form id="form"
+                            class="w-full mt-[3.8rem] flex flex-col md:flex-row items-center gap-4 sobe-animado">
+                            <div class="relative w-full md:w-auto">
+                                <input id="input"
+                                    class="transition-color duration-200 hover:border-white/10 border-[1px] border-white/0 w-full py-3 px-4 font-regular rounded-lg bg-white/10 placeholder:text-white/12 backdrop-blur-[300px] focus:outline-none focus:placeholder:text-black focus:bg-white md:w-[300px]"
+                                    type="text" placeholder="Digite um nome de usuário..">
+                                <span id="msg"
+                                    class="absolute hidden left-0 -bottom-[6.5rem] md:-bottom-[2rem] text-red-600">Usuário
+                                    Não
+                                    encontrado!</span>
+                            </div>
+                            <button type="submit" id="search"
                                 class="transition-color duration-200 border-[1px] border-white/10 text-white/20 px-4 py-3 rounded-lg text-white w-auto w-full md:w-auto">
                                 Buscar
                             </button>
-                        </div>
+                        </form>
                     </div>
 
                     <!-- Recommended Devs -->
-                    <div class="my-[2rem] md:my-[4rem] md:max-w-[500px] sobe-animado">
+                    <div class="my-[4rem] md:my-[4rem] md:max-w-[500px] sobe-animado">
                         <p class="text-sm text-white/30">Devs que o Github recomenda..</p>
                         <ul id="list-users-github" class="flex flex-wrap gap-4 mt-[1rem] text-xs">
 

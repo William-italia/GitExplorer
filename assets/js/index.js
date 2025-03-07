@@ -3,19 +3,55 @@ const input = document.getElementById('input');
 const busca = document.getElementById('search');
 const eu = document.getElementById('eu');
 const p = document.getElementById('rate');
-const token = '';
+const form = document.getElementById('form');
+const msg = document.getElementById('msg');
+const url = "https://api.github.com/";
+const token = "";
+
+// https://api.github.com/users/{username}/repos
+
+function checkForm(e) {
+    e.preventDefault();
+
+    const user = input.value.trim();
+
+    verifiedUser(user);
+}
+
+
+const verifiedUser = async (user) => {
+
+    try {
+        const res = await fetch(`${url}users/${user}`,{
+            headers: {
+                "Authorization": token
+            }
+        })
+        if(!res.ok) {
+
+            msg.classList.remove('hidden');
+            input.style.border = '2px solid red';
+            throw new Error("Usuário invalido!");
+
+        } else {
+            cleanMsg();
+            window.location.href = `perfil.html?user=${user}`;
+        }
+
+    } catch(e) {
+        console.log(e);
+    }
+}
 
 const getRate = async () => {
 
-    const res = await fetch("https://api.github.com/rate_limit", {
+    const res = await fetch(`${url}rate_limit`, {
         headers: {
             "Authorization": token
         }
     })
 
     const rate = await res.json();
-
-    console.log(rate.rate.limit);
     
     p.textContent = `Taxa da API: ${rate.rate.remaining} / ${rate.rate.limit}`
     
@@ -23,14 +59,13 @@ const getRate = async () => {
 
 const getDevs = async () => {
 
-    const res = await fetch("https://api.github.com/users?per_page=5", {
+    const res = await fetch(`${url}users?per_page=5`, {
         headers: {
           "Authorization": token 
         }
       });
 
     const devs = await res.json();
-      console.log(devs);
       
     devs.forEach(dev => {
         createDev(dev.login);
@@ -49,7 +84,6 @@ const createDev = (login) => {
 
 const clickDev = (e) => {
     if (e.target && e.target.classList.contains('user') || e.target.id.includes('eu')) {
-        console.log(e.target);
         
         const login = e.target.dataset.login;
 
@@ -68,15 +102,22 @@ function toggleButton() {
         search.classList.remove('active');
         input.classList.add('bg-white/10');
         input.classList.remove('bg-white/100');
+        cleanMsg();
     }
+}
+
+function cleanMsg() {
+    input.style.border = 'none';
+    msg.classList.add('hidden');
 }
 
 
 function init() {
      
     document.addEventListener('click', clickDev);  
-    // eu.addEventListener('click', )  
+    form.addEventListener('submit', checkForm);
     input.addEventListener('input', toggleButton);
+    input.addEventListener('input', cleanMsg);
 
     toggleButton();
     getRate();
