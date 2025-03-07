@@ -161,6 +161,5 @@ function createA() {
     return a;
 }
 
-// getUser();
+getUser();
 // getReposUser();
-
