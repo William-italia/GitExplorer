@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="William Italia">
+    <meta name="description"
+        content="Encontre desenvolvedores no GitHub de forma rápida e fácil com o GitExplorer. Descubra novos talentos e explore projetos open-source!">
+    <meta name="keywords" content="desenvolvedores, GitHub, encontrar devs, open-source, GitExplorer">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <title>GitExplorer - Descubra Desenvolvedores no GitHub Rápido e Fácil</title>
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '0px',
+                        'md': '600px',
+                        'lg': '1024px',
+                    },
+                },
+            },
+            plugins: [],
+        }
+    </script>
+</head>
+
+<body class="bg-[#161B22]">
+    <main class="w-full h-screen overflow-x-hidden relative flex flex-col ">
+        <!-- Gradient -->
+        <div id="gradient"></div>
+
+        <!-- Elipse -->
+        <div class="hidden md:block lg:block absolute right-[-4%] -top-[5.5rem] sobe-animado">
+            <div id="elipse">
+                <span style="--i:0"></span>
+                <span style="--i:1"></span>
+                <span style="--i:2"></span>
+                <span style="--i:3"></span>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="px-[2rem] py-[2rem] lg:px-[12rem] lg:py-[4rem] min-h-full relative ">
+            <!-- Header -->
+            <div class="flex flex-col justify-between h-full">
+                <div>
+                    <div class="flex items-center text-2xl text-white gap-2 sobe-animado">
+                        <i class="fa-brands fa-github text-4xl"></i>
+                        <h2>Git<span id="Explorer">Explorer</span></h2>
+                    </div>
+
+                    <!-- Title -->
+                    <div>
+                        <h1
+                            class="max-w-[350px] md:max-w-[370px] lg:max-w-[600px] lg:text-5xl lg:leading-[3.8rem] lg:font-bold text-3xl leading-xl font-medium text-white mt-[4rem] sobe-animado">
+                            Descubra Desenvolvedores no GitHub de Forma Rápida e Fácil!
+                        </h1>
+
+                        <!-- Search Bar -->
+                        <div class="w-full mt-[3.8rem] flex flex-col md:flex-row items-center gap-4 sobe-animado">
+                            <input id="input"
+                                class="transition-color duration-200 hover:border-white/10 border-[1px] border-white/0 w-full py-3 px-4 font-regular rounded-lg bg-white/10 placeholder:text-white/12 backdrop-blur-[300px] focus:outline-none focus:placeholder:text-black focus:bg-white md:w-[300px]"
+                                type="text" placeholder="Digite um nome de usuário..">
+                            <button id="search"
+                                class="transition-color duration-200 border-[1px] border-white/10 text-white/20 px-4 py-3 rounded-lg text-white w-auto w-full md:w-auto">
+                                Buscar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Devs -->
+                    <div class="my-[2rem] md:my-[4rem] md:max-w-[500px] sobe-animado">
+                        <p class="text-sm text-white/30">Devs que o Github recomenda..</p>
+                        <ul id="list-users-github" class="flex flex-wrap gap-4 mt-[1rem] text-xs">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="py-2">
+                    <div class="flex flex-col md:flex-row justify-between gap-2">
+                        <p id="eu"
+                            class="user inline-block cursor-pointer transition-color duration-200 text-xs text-white/15 hover:text-white/80"
+                            data-login="william-italia">
+                            Criado por William Italia
+                        </p>
+                        <p id="rate" class="inline-block text-white/15 text-xs ">
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/index.js"></script>
+</body>
+
+
+
+</html>
