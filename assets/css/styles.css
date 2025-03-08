@@ -111,7 +111,7 @@ img {
 
 .skeleton-name {
     animation: skeleton-loading 1.5s infinite ease-in-out;
-    width: 300px;
+    width: 250px;
     height: 30px;
 }
 
@@ -123,15 +123,13 @@ img {
 
 .skeleton-img {
     background-color: #e0e0e0; /* Cor de fundo */
+    height: 80px;
+    width: 80px;
 }
 
 .skeleton-item {
     display: flex;
     gap: 8px;   
-}
-
-#list-bio {
-    padding: 4px;
 }
 
 #list-bio > li.skeleton-item:first-child > h2 {

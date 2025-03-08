@@ -92,6 +92,7 @@ function createLiBio(data) {
             h2.style.width = 'auto';
             h2.style.fontWeight = '300';
             const li = createLi();
+            li.classList.remove('border-b-2');
             li.appendChild(h2);
             listBio.appendChild(li);
             return;
@@ -137,7 +138,7 @@ function createP() {
 
 function createLi() {
     const li = document.createElement('LI');
-    li.classList.add('border-b-2', 'border-zinc-100', 'flex', 'items-center', 'gap-2', 'p-4');
+    li.classList.add('border-b-2', 'border-zinc-100', 'flex', 'flex-shirk', 'items-center', 'gap-2', 'p-4');
     return li;
 }
 
@@ -156,6 +157,7 @@ function createA() {
         "inline-block",
         "rounded-lg",
         "hover:text-black/100",
+        "truncate",
     );
 
     return a;

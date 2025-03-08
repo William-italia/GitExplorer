@@ -28,7 +28,8 @@
                     screens: {
                         'xs': '0px',
                         'md': '600px',
-                        'lg': '1024px',
+                        'lg': '1030px',
+                        'xl': '1425px'
                     },
                 },
             },
@@ -37,8 +38,9 @@
     </script>
 </head>
 
-<body>
-    <header class="flex items-center justify-between w-full bg-[#161B22] h-[60px] px-4 md:px-[390px]">
+<body class="bg-[#FBFBFB]">
+    <header
+        class="flex items-center justify-between w-full bg-[#161B22] h-[60px] px-4 md:px-[50px]  lg:px-[100px] xl:px-[300px]">
         <div class="flex items-center gap-4">
             <i class="fa-brands fa-square-github text-white text-3xl"></i>
             <a href="./index.html" class="text-white font-medium text-sm">GitExplorer</a>
@@ -49,10 +51,10 @@
         </form>
     </header>
 
-    <main class="w-full md:flex md:px-[390px]">
-        <aside class="">
+    <main class="relative w-full lg:flex md:px-[50px]  flex flex-col lg:flex-row lg:gap-8 lg:px-[100px] xl:px-[300px]">
+        <aside class="shadow-lg mb-10 md:my-10 bg-white lg:w-[40%] xl:w-[30%] lg:sticky lg:top-4 lg:h-fit">
             <div id="perfil" class="flex items-center space-y-2 space-x-4 py-6 px-4 border-b-2 border-zinc-100">
-                <div class="w-[80px] h-[80px] rounded-[50%] overflow-hidden skeleton">
+                <div class="w-[80px] h-[80px] rounded-[50%] overflow-hidden skeleton-img">
                     <img id="img" src="" alt="" class="w-full h-full hidden" />
                 </div>
                 <div class="">
@@ -86,14 +88,52 @@
                     <h2 class="skeleton"></h2>
                     <p class="skeleton"></p>
                 </li>
-                <li class="border-b-2 border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
+                <li class="border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
                     <h2 class="skeleton"></h2>
                 </li>
             </ul>
         </aside>
 
-        <div>
-            <h1>teste</h1>
+        <div class="shadow-lg mb-10 md:my-10 bg-white p-4 lg:w-full h-full">
+            <div>
+                <div class="flex flex-col space-y-6">
+                    <!-- repos -->
+                    <!-- sort -->
+                    <div class="flex items-center gap-4">
+                        <h2>Repositórios: </h2>
+                        <span id="repos-number" class="bg-zinc-200 px-4 py-1 text-xs rounded-xl">32</span>
+                    </div>
+                    <div>
+                        <button class="py-2 px-4 border-2 rounded-xl text-sm font-light">Sort by: <span
+                                class="font-bold">Update</span> <i
+                                class="fa-solid fa-chevron-down text-zinc-200"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <!-- input -->
+                    <!-- includes -->
+                    <div class="flex flex-col mt-4">
+                        <input type="text" placeholder="Busque Repositórios"
+                            class="w-full border-2 px-4 py-2 rounded-lg placeholder:text-sm mb-4">
+                        <div class="flex items-center space-x-4">
+                            <h2>include:</h2>
+                            <label for="">
+                                <input type="checkbox">
+                                <span>
+                                    bifurcado</span>
+                            </label>
+                            <label for="">
+                                <input type="checkbox">
+                                <span>Arquivado</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul>
+
+            </ul>
         </div>
     </main>
     <script src="./assets/js/perfil.js"></script>
