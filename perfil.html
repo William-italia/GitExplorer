@@ -58,7 +58,7 @@
         <!-- container content-->
         <div id="content-container" class="w-full max-w-[1140px] mx-auto  md:py-[3rem]">
             <!-- perfil-container -->
-            <ul id="listbio" class="rounded-lg">
+            <ul id="listbio" class="rounded-lg shadow-xl">
                 <li id="profile" class="flex flex-col items-center text-center px-[1.1rem] py-[1.5rem] border-b-[1px]">
                     <!-- img -->
                     <div class="w-[60px] h-[60px] bg-gray-300 overflow-hidden rounded-[100%]">
@@ -94,7 +94,53 @@
 
             <!-- repos-container -->
             <section id="repos" class="">
+                <div>
+                    <ul>
+                        <li>
+                            <h2>Repositórios Publicos</h2>
+                            <span>36</span>
+                        </li>
+                        <div>
+                            <button>
+                                <span>Sort By: </span>
+                                <strong>Update</strong>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <ul id="dropdonw" class="">
+                                <li>
+                                    <a href="#" data-slug="updated_at">Update</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-slug="updated_at">Create</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-slug="updated_at">Stars</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-slug="updated_at">Forks</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-slug="updated_at">Issues</a>
+                                </li>
+                            </ul>
 
+                        </div>
+                    </ul>
+                    <div>
+                        <input type="text" placeholder="Procure um repositório">
+                        <div>
+                            <h5>Include</h5>
+                            <label for="">
+                                <input type="checkbox" value="true" checked>
+                                <span>Forked</span>
+                            </label>
+                            <label for="">
+                                <input type="checkbox" value="true" checked>
+                                <span>Archived</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- up -->
