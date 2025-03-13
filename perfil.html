@@ -39,105 +39,68 @@
 </head>
 
 <body class="bg-[#FBFBFB]">
-    <header class="flex items-center justify-between w-full bg-[#161B22] h-[60px] px-4 md:px-[20px] xl:px-[200px]">
-        <div class="flex items-center gap-4">
-            <i class="fa-brands fa-square-github text-white text-3xl"></i>
-            <a href="./index.html" class="text-white font-medium text-sm">GitExplorer</a>
-        </div>
-        <form id="form" action="">
-            <input id="search" type="text" placeholder="Insira um nome de usuário"
-                class="transition-color duration-200 hover:boder-[1px] hover:border-blue-300 border-[1px] border-white/0 text-white font-light rounded-lg bg-white/10 placeholder:text-white/12 placeholder:text-sm backdrop-blur-[300px] focus:outline-none focus:border-2 w-[230px] focus:border-blue-300 py-2 pr-3 pl-2 text-sm">
-        </form>
-    </header>
-
-    <main class="relative w-full lg:flex flex flex-col lg:flex-row lg:gap-8 md:px-[20px]  xl:px-[200px]">
-        <aside
-            class="shadow-lg mb-10 md:my-10 bg-white lg:w-[280px] xl:w-[400px] lg:sticky lg:top-4 lg:h-fit md:rounded-lg lg:rounded-lg xl:rounded-lg">
-            <div id="perfil"
-                class="flex lg:flex-col lg:text-center items-center space-y-2 space-x-4 py-6 px-4 border-b-2 border-zinc-100">
-                <div class="w-[80px] h-[80px] rounded-[50%] overflow-hidden skeleton-img">
-                    <img id="img" src="" alt="" class="w-full h-full hidden" />
+    <!-- global container -->
+    <div id="global-container" class="">
+        <!-- navbar -->
+        <nav id="navbar" class="h-[52px] w-full bg-[#161B22] grid content-center px-[1.5rem]">
+            <div class="grid grid-cols-2 w-full max-w-[1140px] mx-auto">
+                <div class="flex items-center gap-2">
+                    <i class="fa-brands fa-github text-2xl text-white"></i>
+                    <h1 class="text-white font-light text-sm hidden">GitExplorer</h1>
                 </div>
-                <div class="">
-                    <h1 id="name" class="mb-1 text-[1.25rem] lg:text-[.9rem] font-[600] skeleton-name"></h1>
-                    <div id="nick-link"
-                        class="transition duration-200 hover:bg-zinc-200 inline-block text-zinc-400 rounded-lg hover:text-black/100 skeleton-link">
-                        <i id="igit" class="fa-brands fa-github hidden"></i>
-                        <a id="login" href="#" class="skeleton-link"></a>
-                    </div>
+                <div class="flex justify-end">
+                    <input type="text" class="bg-[#29313C] rounded px-2 py-1 placeholder:text-xs  text-white"
+                        placeholder="Insira um nome de usuário">
                 </div>
             </div>
+        </nav>
 
-            <ul id="list-bio" class="">
-                <!-- Skeleton bio item -->
-                <li class="border-b-2 border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
-                    <h2 class="skeleton"></h2>
-                </li>
-                <li class="border-b-2 border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
-                    <h2 class="skeleton"></h2>
-                    <p class="skeleton"></p>
-                </li>
-                <li class="border-b-2 border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
-                    <h2 class="skeleton"></h2>
-                    <p class="skeleton"></p>
-                </li>
-                <li class="border-b-2 border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
-                    <h2 class="skeleton"></h2>
-                    <p class="skeleton"></p>
-                </li>
-                <li class="border-b-2 border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
-                    <h2 class="skeleton"></h2>
-                    <p class="skeleton"></p>
-                </li>
-                <li class="border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
-                    <h2 class="skeleton"></h2>
-                </li>
-            </ul>
-        </aside>
-
-        <div
-            class="shadow-lg mb-10 md:my-10 bg-white p-4 lg:w-full xl:w-[900px] h-full md:rounded-lg lg:rounded-lg xl:rounded-lg ">
-            <div>
-                <div class="flex flex-col xl:flex-row xl:justify-between xl:items-center xl:space-y-0 space-y-6">
-                    <!-- repos -->
-                    <!-- sort -->
-                    <div class="flex items-center gap-4">
-                        <h2>Repositórios: </h2>
-                        <span id="repos-number" class="bg-zinc-200 px-4 py-1 text-xs rounded-xl">32</span>
+        <!-- container content-->
+        <div id="content-container" class="w-full max-w-[1140px] mx-auto  md:py-[3rem]">
+            <!-- perfil-container -->
+            <ul id="listbio" class="rounded-lg">
+                <li id="profile" class="flex flex-col items-center text-center px-[1.1rem] py-[1.5rem] border-b-[1px]">
+                    <!-- img -->
+                    <div class="w-[60px] h-[60px] bg-gray-300 overflow-hidden rounded-[100%]">
+                        <img src="./assets/imgs/barbudo.jpg" alt="" class="w-full h-full">
                     </div>
-                    <div>
-                        <button class="py-2 px-4 border-2 rounded-xl text-sm font-light">Sort by: <span
-                                class="font-bold">Update</span> <i
-                                class="fa-solid fa-chevron-down text-zinc-200"></i></button>
-                    </div>
-                </div>
-                <div>
-                    <!-- input -->
-                    <!-- includes -->
-                    <div class="xl:flex xl:items-center xl:justify-between mt-4">
-                        <input type="text" placeholder="Busque Repositórios"
-                            class="w-full border-2 px-4 py-2 rounded-lg placeholder:text-sm xl:mb-0 xl:w-[500px] mb-4">
-                        <div class="flex items-center space-x-4">
-                            <h2>include:</h2>
-                            <label for="" class="xl:flex gap-2">
-                                <input type="checkbox">
-                                <span>
-                                    bifurcado</span>
-                            </label>
-                            <label for="" class="xl:flex gap-2">
-                                <input type="checkbox">
-                                <span>Arquivado</span>
-                            </label>
+                    <!-- name -->
+                    <div id="names">
+                        <h1 id="name" class="text-lg font-[600] my-[.25rem] ">William Italia Nogueira</h1>
+                        <div id="username" class="inline-block">
+                            <a id="link-git" href="" target="_blank"
+                                class="group hover:bg-zinc-200 text-sm rounded-lg px-2 text-[#6C7690] transition-background duration-500">
+                                <i class="fa-brands fa-github"></i>
+                                william-italia
+                                <i
+                                    class="fa-solid fa-arrow-right rotate-[-40deg] text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease"></i>
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <ul>
-
+                </li>
+                <li id="desc" class="py-[0.75rem] px-[1.1rem] border-b-[1px]">
+                    <p>Web Developer
+                        ╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣
+                        ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣</p>
+                </li>
+                <li class="flex  px-[1.1rem] py-[0.75rem] border-b-[1px]">
+                    <h3 class="w-[100px] text-[#6C7690] font-medium">Location</h3>
+                    <p class="font-light">SP, Brasil</p>
+                </li>
+                <li class="flex  px-[1.1rem] py-[0.75rem] border-b-[1px]">
+                    <h3 class="text-[#6C7690] font-light ">GitHub member since 2021</h3>
+                </li>
             </ul>
+
+            <!-- repos-container -->
+            <section id="repos" class="">
+
+            </section>
+
+            <!-- up -->
+            <button class="hidden"></button>
         </div>
-    </main>
+    </div>
     <script src="./assets/js/perfil.js"></script>
 </body>
 
