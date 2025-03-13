@@ -5,7 +5,6 @@ const nick = document.getElementById('login');
 const nickLink = document.getElementById('nick-link'); 
 const icongit = document.getElementById('igit');
 
-
 const url = new URLSearchParams(window.location.search);
 const urlGit = "https://api.github.com/";
 const token = "";
@@ -35,7 +34,7 @@ removeload()
 }
 
 function removeload() {
-
+ 
     listBio.replaceChildren();
     img.classList.remove('hidden');
     icongit.classList.remove('hidden');
@@ -77,6 +76,7 @@ function createLiBio(data) {
    
 
     Object.entries(userData).forEach(([key, value]) => {
+
         if (key === 'bio' && value !== null) {
             const p = createP();
             p.textContent = value;
@@ -132,19 +132,19 @@ function createLiBio(data) {
 
 function createP() {
     const p = document.createElement('P');
-    p.classList.add('font-light');
+    p.classList.add('font-light', 'break-words', 'w-full');
     return p;
 }
 
 function createLi() {
     const li = document.createElement('LI');
-    li.classList.add('border-b-2', 'border-zinc-100', 'flex', 'flex-shirk', 'items-center', 'gap-2', 'p-4');
+    li.classList.add('border-b-2', 'border-zinc-100', 'flex', 'lg:flex-col', 'xl:flex-row', 'gap-2', 'p-4');
     return li;
 }
 
 function createH() {
     const h2 = document.createElement('H2');
-    h2.classList.add('w-[120px]', 'text-zinc-400', 'font-medium', 'text-[1rem]');
+    h2.classList.add('w-[120px]', 'text-zinc-400', 'font-medium', 'text-[1rem]', 'break-words', 'w-full');
     return h2;
 }
 
@@ -157,7 +157,7 @@ function createA() {
         "inline-block",
         "rounded-lg",
         "hover:text-black/100",
-        "truncate",
+        'break-words', 'w-full'
     );
 
     return a;

@@ -39,8 +39,7 @@
 </head>
 
 <body class="bg-[#FBFBFB]">
-    <header
-        class="flex items-center justify-between w-full bg-[#161B22] h-[60px] px-4 md:px-[50px]  lg:px-[100px] xl:px-[300px]">
+    <header class="flex items-center justify-between w-full bg-[#161B22] h-[60px] px-4 md:px-[20px] xl:px-[200px]">
         <div class="flex items-center gap-4">
             <i class="fa-brands fa-square-github text-white text-3xl"></i>
             <a href="./index.html" class="text-white font-medium text-sm">GitExplorer</a>
@@ -51,14 +50,16 @@
         </form>
     </header>
 
-    <main class="relative w-full lg:flex md:px-[50px]  flex flex-col lg:flex-row lg:gap-8 lg:px-[100px] xl:px-[300px]">
-        <aside class="shadow-lg mb-10 md:my-10 bg-white lg:w-[40%] xl:w-[30%] lg:sticky lg:top-4 lg:h-fit">
-            <div id="perfil" class="flex items-center space-y-2 space-x-4 py-6 px-4 border-b-2 border-zinc-100">
+    <main class="relative w-full lg:flex flex flex-col lg:flex-row lg:gap-8 md:px-[20px]  xl:px-[200px]">
+        <aside
+            class="shadow-lg mb-10 md:my-10 bg-white lg:w-[280px] xl:w-[400px] lg:sticky lg:top-4 lg:h-fit md:rounded-lg lg:rounded-lg xl:rounded-lg">
+            <div id="perfil"
+                class="flex lg:flex-col lg:text-center items-center space-y-2 space-x-4 py-6 px-4 border-b-2 border-zinc-100">
                 <div class="w-[80px] h-[80px] rounded-[50%] overflow-hidden skeleton-img">
                     <img id="img" src="" alt="" class="w-full h-full hidden" />
                 </div>
                 <div class="">
-                    <h1 id="name" class="mb-1 text-[1.25rem] font-[600] skeleton-name"></h1>
+                    <h1 id="name" class="mb-1 text-[1.25rem] lg:text-[.9rem] font-[600] skeleton-name"></h1>
                     <div id="nick-link"
                         class="transition duration-200 hover:bg-zinc-200 inline-block text-zinc-400 rounded-lg hover:text-black/100 skeleton-link">
                         <i id="igit" class="fa-brands fa-github hidden"></i>
@@ -67,7 +68,7 @@
                 </div>
             </div>
 
-            <ul id="list-bio">
+            <ul id="list-bio" class="">
                 <!-- Skeleton bio item -->
                 <li class="border-b-2 border-zinc-100 flex items-center gap-2 p-4 skeleton-item">
                     <h2 class="skeleton"></h2>
@@ -94,9 +95,10 @@
             </ul>
         </aside>
 
-        <div class="shadow-lg mb-10 md:my-10 bg-white p-4 lg:w-full h-full">
+        <div
+            class="shadow-lg mb-10 md:my-10 bg-white p-4 lg:w-full xl:w-[900px] h-full md:rounded-lg lg:rounded-lg xl:rounded-lg ">
             <div>
-                <div class="flex flex-col space-y-6">
+                <div class="flex flex-col xl:flex-row xl:justify-between xl:items-center xl:space-y-0 space-y-6">
                     <!-- repos -->
                     <!-- sort -->
                     <div class="flex items-center gap-4">
@@ -112,17 +114,17 @@
                 <div>
                     <!-- input -->
                     <!-- includes -->
-                    <div class="flex flex-col mt-4">
+                    <div class="xl:flex xl:items-center xl:justify-between mt-4">
                         <input type="text" placeholder="Busque Repositórios"
-                            class="w-full border-2 px-4 py-2 rounded-lg placeholder:text-sm mb-4">
+                            class="w-full border-2 px-4 py-2 rounded-lg placeholder:text-sm xl:mb-0 xl:w-[500px] mb-4">
                         <div class="flex items-center space-x-4">
                             <h2>include:</h2>
-                            <label for="">
+                            <label for="" class="xl:flex gap-2">
                                 <input type="checkbox">
                                 <span>
                                     bifurcado</span>
                             </label>
-                            <label for="">
+                            <label for="" class="xl:flex gap-2">
                                 <input type="checkbox">
                                 <span>Arquivado</span>
                             </label>
