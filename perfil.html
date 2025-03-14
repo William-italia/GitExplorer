@@ -26,9 +26,10 @@
             theme: {
                 extend: {
                     screens: {
-                        'xs': '0px',
-                        'md': '600px',
-                        'lg': '1030px',
+                        'xs': '320px',
+                        'sm': '500px',
+                        'md': '640px',
+                        'lg': '859px',
                         'xl': '1425px'
                     },
                 },
@@ -38,114 +39,111 @@
     </script>
 </head>
 
-<body class="bg-[#FBFBFB]">
-    <!-- global container -->
-    <div id="global-container" class="">
-        <!-- navbar -->
-        <nav id="navbar" class="h-[52px] w-full bg-[#161B22] grid content-center px-[1.5rem]">
-            <div class="grid grid-cols-2 w-full max-w-[1140px] mx-auto">
-                <div class="flex items-center gap-2">
-                    <i class="fa-brands fa-github text-2xl text-white"></i>
-                    <h1 class="text-white font-light text-sm hidden">GitExplorer</h1>
+<body class="bg-[#16161d] w-screen min-w-[320px]">
+    <!-- navbar -->
+    <nav id="navbar" class="h-[52px] bg-[#161B22] ">
+        <div class="flex items-center justify-between h-full w-full px-[1.5rem]  md:max-w-[1140px] mx-auto">
+            <div class="flex items-center gap-2">
+                <i class="fa-brands fa-github text-2xl text-white"></i>
+                <h1 class="text-white font-light text-sm hidden sm:block">GitExplorer</h1>
+            </div>
+            <div class="">
+                <input type="text" class="bg-[#29313C] rounded px-2 py-1 placeholder:text-xs  text-white"
+                    placeholder="Insira um nome de usuário">
+            </div>
+        </div>
+    </nav>
+
+    <!-- container content-->
+    <div id="content-container" class="md:px-[1.5rem] md:py-[2.8rem] lg:max-w-[1140px] lg:mx-auto lg:flex lg:gap-4">
+        <!-- perfil-container -->
+        <ul id="listbio" class=" bg-white rounded-lg shadow-xl lg:w-[30%]">
+            <li id="profile" class="flex flex-col items-center text-center px-[1.1rem] py-[1.5rem] border-b-[1px]">
+                <!-- img -->
+                <div class="w-[60px] h-[60px] bg-gray-300 overflow-hidden rounded-[100%]">
+                    <img src="./assets/imgs/barbudo.jpg" alt="" class="w-full h-full">
                 </div>
-                <div class="flex justify-end">
-                    <input type="text" class="bg-[#29313C] rounded px-2 py-1 placeholder:text-xs  text-white"
-                        placeholder="Insira um nome de usuário">
+                <!-- name -->
+                <div id="names">
+                    <h1 id="name" class="text-lg font-[600] my-[.25rem] ">William Italia Nogueira</h1>
+                    <div id="username" class="inline-block">
+                        <a id="link-git" href="" target="_blank"
+                            class="group hover:bg-zinc-200 text-sm rounded-lg px-2 text-[#6C7690] transition-background duration-500">
+                            <i class="fa-brands fa-github"></i>
+                            william-italia
+                            <i
+                                class="fa-solid fa-arrow-right rotate-[-40deg] text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li id="desc" class="py-[0.75rem] px-[1.1rem] border-b-[1px]">
+                <p>Web Developer
+                    ╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣
+                    ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣</p>
+            </li>
+            <li class="flex  px-[1.1rem] py-[0.75rem] border-b-[1px]">
+                <h3 class="w-[100px] text-[#6C7690] font-medium">Location</h3>
+                <p class="font-light">SP, Brasil</p>
+            </li>
+            <li class="flex  px-[1.1rem] py-[0.75rem] border-b-[1px]">
+                <h3 class="text-[#6C7690] font-light ">GitHub member since 2021</h3>
+            </li>
+        </ul>
+
+        <!-- repos-container -->
+        <section id="repos" class="bg-white w-full">
+            <div>
+                <ul>
+                    <li>
+                        <h2>Repositórios Publicos</h2>
+                        <span>36</span>
+                    </li>
+                    <div>
+                        <button>
+                            <span>Sort By: </span>
+                            <strong>Update</strong>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul id="dropdonw" class="">
+                            <li>
+                                <a href="#" data-slug="updated_at">Update</a>
+                            </li>
+                            <li>
+                                <a href="#" data-slug="updated_at">Create</a>
+                            </li>
+                            <li>
+                                <a href="#" data-slug="updated_at">Stars</a>
+                            </li>
+                            <li>
+                                <a href="#" data-slug="updated_at">Forks</a>
+                            </li>
+                            <li>
+                                <a href="#" data-slug="updated_at">Issues</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </ul>
+                <div>
+                    <input type="text" placeholder="Procure um repositório">
+                    <div>
+                        <h5>Include</h5>
+                        <label for="">
+                            <input type="checkbox" value="true" checked>
+                            <span>Forked</span>
+                        </label>
+                        <label for="">
+                            <input type="checkbox" value="true" checked>
+                            <span>Archived</span>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </section>
 
-        <!-- container content-->
-        <div id="content-container" class="w-full max-w-[1140px] mx-auto  md:py-[3rem]">
-            <!-- perfil-container -->
-            <ul id="listbio" class="rounded-lg shadow-xl">
-                <li id="profile" class="flex flex-col items-center text-center px-[1.1rem] py-[1.5rem] border-b-[1px]">
-                    <!-- img -->
-                    <div class="w-[60px] h-[60px] bg-gray-300 overflow-hidden rounded-[100%]">
-                        <img src="./assets/imgs/barbudo.jpg" alt="" class="w-full h-full">
-                    </div>
-                    <!-- name -->
-                    <div id="names">
-                        <h1 id="name" class="text-lg font-[600] my-[.25rem] ">William Italia Nogueira</h1>
-                        <div id="username" class="inline-block">
-                            <a id="link-git" href="" target="_blank"
-                                class="group hover:bg-zinc-200 text-sm rounded-lg px-2 text-[#6C7690] transition-background duration-500">
-                                <i class="fa-brands fa-github"></i>
-                                william-italia
-                                <i
-                                    class="fa-solid fa-arrow-right rotate-[-40deg] text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease"></i>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li id="desc" class="py-[0.75rem] px-[1.1rem] border-b-[1px]">
-                    <p>Web Developer
-                        ╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣
-                        ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣</p>
-                </li>
-                <li class="flex  px-[1.1rem] py-[0.75rem] border-b-[1px]">
-                    <h3 class="w-[100px] text-[#6C7690] font-medium">Location</h3>
-                    <p class="font-light">SP, Brasil</p>
-                </li>
-                <li class="flex  px-[1.1rem] py-[0.75rem] border-b-[1px]">
-                    <h3 class="text-[#6C7690] font-light ">GitHub member since 2021</h3>
-                </li>
-            </ul>
-
-            <!-- repos-container -->
-            <section id="repos" class="">
-                <div>
-                    <ul>
-                        <li>
-                            <h2>Repositórios Publicos</h2>
-                            <span>36</span>
-                        </li>
-                        <div>
-                            <button>
-                                <span>Sort By: </span>
-                                <strong>Update</strong>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </button>
-                            <ul id="dropdonw" class="">
-                                <li>
-                                    <a href="#" data-slug="updated_at">Update</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-slug="updated_at">Create</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-slug="updated_at">Stars</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-slug="updated_at">Forks</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-slug="updated_at">Issues</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </ul>
-                    <div>
-                        <input type="text" placeholder="Procure um repositório">
-                        <div>
-                            <h5>Include</h5>
-                            <label for="">
-                                <input type="checkbox" value="true" checked>
-                                <span>Forked</span>
-                            </label>
-                            <label for="">
-                                <input type="checkbox" value="true" checked>
-                                <span>Archived</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- up -->
-            <button class="hidden"></button>
-        </div>
+        <!-- up -->
+        <button class="hidden"></button>
     </div>
     <script src="./assets/js/perfil.js"></script>
 </body>
