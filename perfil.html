@@ -55,7 +55,8 @@
     </nav>
 
     <!-- container content-->
-    <div id="content-container" class="md:px-[1.5rem] md:py-[2.8rem] lg:max-w-[1140px] lg:mx-auto lg:flex lg:gap-4">
+    <div id="content-container"
+        class="flex flex-col gap-8 md:px-[1.5rem] md:py-[2.8rem] lg:max-w-[1140px] lg:mx-auto lg:flex-row lg:gap-4">
         <!-- perfil-container -->
         <ul id="listbio" class=" bg-white md:rounded-lg shadow-xl lg:w-[30%]">
             <li id="profile" class="flex flex-col items-center text-center px-[1.1rem] py-[1.5rem] border-b-[1px]">
@@ -93,19 +94,19 @@
 
         <!-- repos-container -->
         <section id="repos" class="bg-white w-full">
-            <div>
-                <ul>
-                    <li>
-                        <h2>Repositórios Publicos</h2>
-                        <span>36</span>
+            <div class="px-[1.5rem] py-[1.5rem]">
+                <ul class="md:flex md:items-center md:justify-between md:mb-8">
+                    <li class="flex items-center mb-8 md:mb-0 gap-6">
+                        <h2 class="">Repositórios Publicos:</h2>
+                        <span class="bg-zinc-200 px-2 rounded-lg font-[600]">36</span>
                     </li>
                     <div>
-                        <button>
+                        <button class="border-2 px-4 py-2 rounded-lg">
                             <span>Sort By: </span>
-                            <strong>Update</strong>
+                            <strong id="status">Update</strong>
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
-                        <ul id="dropdonw" class="">
+                        <ul id="dropdonw" class="hidden">
                             <li>
                                 <a href="#" data-slug="updated_at">Update</a>
                             </li>
@@ -125,10 +126,12 @@
 
                     </div>
                 </ul>
-                <div>
-                    <input type="text" placeholder="Procure um repositório">
-                    <div>
-                        <h5>Include</h5>
+                <div class="md:flex md:items-center w-full md:justify-between">
+                    <input type="text"
+                        class="w-auto lg:flex-grow mr-4 my-4 md:my-0 px-4 py-2 rounded-lg border-2 border-zinc-200"
+                        placeholder="Procure um repositório">
+                    <div class="flex space-x-4">
+                        <h5>Include:</h5>
                         <label for="">
                             <input type="checkbox" value="true" checked>
                             <span>Forked</span>
@@ -140,6 +143,12 @@
                     </div>
                 </div>
             </div>
+            <ul>
+                <li class="bg-pink-300">
+                    <h1>Penis</h1>
+                    <p>meu penis</p>
+                </li>
+            </ul>
         </section>
 
         <!-- up -->
