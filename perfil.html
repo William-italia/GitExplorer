@@ -29,7 +29,7 @@
                         'xs': '320px',
                         'sm': '500px',
                         'md': '640px',
-                        'lg': '859px',
+                        'lg': '865px',
                         'xl': '1425px'
                     },
                 },
@@ -39,7 +39,7 @@
     </script>
 </head>
 
-<body class="bg-[#16161d] w-screen min-w-[320px]">
+<body class="bg-gray-100 w-screen min-w-[320px]">
     <!-- navbar -->
     <nav id="navbar" class="h-[52px] bg-[#161B22] ">
         <div class="flex items-center justify-between h-full w-full gap-2 px-[1.5rem]  md:max-w-[1140px] mx-auto">
@@ -56,71 +56,84 @@
 
     <!-- container content-->
     <div id="content-container"
-        class="flex flex-col gap-8 md:px-[1.5rem] md:py-[2.8rem] lg:max-w-[1140px] lg:mx-auto lg:flex-row lg:gap-4">
+        class=" relative flex flex-col gap-8 md:px-[1.5rem] md:py-[2.8rem] lg:max-w-[1140px] lg:mx-auto lg:flex-row lg:gap-4">
         <!-- perfil-container -->
-        <ul id="listbio" class=" bg-white md:rounded-lg shadow-xl lg:w-[30%]">
+        <ul id="listbio" class="text-[.8rem] lg:sticky lg:top-0 bg-white md:rounded-lg shadow-xl lg:w-[30%] h-full">
             <li id="profile" class="flex flex-col items-center text-center px-[1.1rem] py-[1.5rem] border-b-[1px]">
                 <!-- img -->
-                <div class="w-[60px] h-[60px] bg-gray-300 overflow-hidden rounded-[100%]">
-                    <img src="./assets/imgs/barbudo.jpg" alt="" class="w-full h-full">
+                <div id="boxImg" class="w-[60px] h-[60px] bg-gray-300 overflow-hidden rounded-[100%] skeleton-img">
+                    <!-- <img id="imgPerfil" src="" alt="" class="w-full h-full"> -->
                 </div>
                 <!-- name -->
-                <div id="names">
-                    <h1 id="name" class="text-lg font-[600] my-[.25rem] ">William Italia Nogueira</h1>
+                <div id="profile">
+                    <h1 id="name" class="text-[1.2rem] font-[600] my-[.25rem] skeleton-name"></h1>
                     <div id="username" class="inline-block">
                         <a id="link-git" href="" target="_blank"
-                            class="group hover:bg-zinc-200 text-sm rounded-lg px-2 text-[#6C7690] transition-background duration-500">
-                            <i class="fa-brands fa-github"></i>
-                            william-italia
-                            <i
-                                class="fa-solid fa-arrow-right rotate-[-40deg] text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease"></i>
+                            class="skeleton-link block group hover:bg-zinc-200 text-[.8rem] rounded-lg px-2 text-[#6C7690] transition-background duration-500">
+                            <i id="icone-git" class="fa-brands fa-github hidden"></i>
+
+                            <i id="icone-link"
+                                class="hidden ml-2 fa-solid fa-arrow-right rotate-[-40deg] text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease"></i>
                         </a>
                     </div>
                 </div>
             </li>
-            <li id="desc" class="py-[0.75rem] px-[1.1rem] border-b-[1px]">
-                <p>Web Developer
-                    ╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣
-                    ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣</p>
-            </li>
-            <li class="flex  px-[1.1rem] py-[0.75rem] border-b-[1px]">
-                <h3 class="w-[100px] text-[#6C7690] font-medium">Location</h3>
-                <p class="font-light">SP, Brasil</p>
-            </li>
-            <li class="flex  px-[1.1rem] py-[0.75rem] ">
-                <h3 class="text-[#6C7690] font-light ">GitHub member since 2021</h3>
-            </li>
+            <ul id="listBio">
+                <li id="bio" class=" py-[0.75rem] px-[1.1rem] border-b-[1px]">
+                    <p class="break-words skeleton-text"></p>
+                </li>
+                <li class="flex px-[1.1rem] py-[0.75rem] border-b-[1px] skeleton-item">
+                    <h3 class="w-[100px] text-[#6C7690] font-medium skeleton"></h3>
+                    <p class="font-light skeleton"></p>
+                </li>
+                <li class="flex px-[1.1rem] py-[0.75rem] border-b-[1px] skeleton-item">
+                    <h3 class="w-[100px] text-[#6C7690] font-medium skeleton"></h3>
+                    <p class="font-light skeleton"></p>
+                </li>
+                <li class="flex px-[1.1rem] py-[0.75rem] border-b-[1px] skeleton-item">
+                    <h3 class="w-[100px] text-[#6C7690] font-medium skeleton"></h3>
+                    <p class="font-light skeleton"></p>
+                </li>
+                <li class="flex px-[1.1rem] py-[0.75rem] border-b-[1px] skeleton-item">
+                    <h3 class="w-[100px] text-[#6C7690] font-medium skeleton"></h3>
+                    <p class="font-light skeleton"></p>
+                </li>
+                <li class="flex px-[1.1rem] py-[0.75rem] ">
+                    <h3 class="text-[#6C7690] font-light skeleton py-4"></h3>
+                </li>
+            </ul>
         </ul>
 
         <!-- repos-container -->
-        <section id="repos" class="bg-white w-full">
-            <div class="px-[1.5rem] py-[1.5rem]">
+        <section id="repos" class="bg-white md:rounded-lg shadow-lg w-full h-full text-[.8rem]">
+            <div class="px-[1.5rem] py-[1.5rem] border-b-2">
                 <ul class="md:flex md:items-center md:justify-between md:mb-8">
                     <li class="flex items-center mb-8 md:mb-0 gap-6">
                         <h2 class="">Repositórios Publicos:</h2>
                         <span class="bg-zinc-200 px-2 rounded-lg font-[600]">36</span>
                     </li>
-                    <div>
+                    <div class="relative">
                         <button class="border-2 px-4 py-2 rounded-lg">
                             <span>Sort By: </span>
                             <strong id="status">Update</strong>
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
-                        <ul id="dropdonw" class="hidden">
-                            <li>
-                                <a href="#" data-slug="updated_at">Update</a>
+                        <ul id="dropdonw"
+                            class="hidden flex flex-col space-y-0 py-2 border-2 absolute bg-white rounded-lg top-[3.2rem] w-[180px]">
+                            <li class="">
+                                <a class="hover:bg-red-300 block p-2 text-sm" href="#" data-slug="updated_at">Update</a>
                             </li>
                             <li>
-                                <a href="#" data-slug="updated_at">Create</a>
+                                <a class="hover:bg-red-300 block p-2 text-sm" href="#" data-slug="updated_at">Create</a>
                             </li>
                             <li>
-                                <a href="#" data-slug="updated_at">Stars</a>
+                                <a class="hover:bg-red-300 block p-2 text-sm" href="#" data-slug="updated_at">Stars</a>
                             </li>
                             <li>
-                                <a href="#" data-slug="updated_at">Forks</a>
+                                <a class="hover:bg-red-300 block p-2 text-sm" href="#" data-slug="updated_at">Forks</a>
                             </li>
                             <li>
-                                <a href="#" data-slug="updated_at">Issues</a>
+                                <a class="hover:bg-red-300 block p-2 text-sm" href="#" data-slug="updated_at">Issues</a>
                             </li>
                         </ul>
                     </div>
@@ -143,10 +156,7 @@
                 </div>
             </div>
             <ul>
-                <li class="bg-pink-300">
-                    <h1>fds</h1>
-                    <p>fds fds fds fds fds fds</p>
-                </li>
+
             </ul>
         </section>
 

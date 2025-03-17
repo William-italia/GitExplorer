@@ -1,163 +1,256 @@
-
-
 const url = new URLSearchParams(window.location.search);
+const urlUser = 'https://github.com/';
 const urlGit = "https://api.github.com/";
 const token = "";
 const user = url.get('user');
 
+
+const names = document.getElementById('names');
+const boxImg = document.getElementById('boxImg');
+const imgPerfil = document.getElementById('imgPerfil');
+const name = document.getElementById('name');
+const username = document.getElementById('link-git');
+const iconeGit = document.getElementById('icone-git');
+const iconeLink = document.getElementById('icone-link');
+const bio = document.getElementById('bio');
+const listBio = document.getElementById('listBio');
+
 const getUser = async () => {
 
-const res = await fetch(`${urlGit}users/${user}`, {
-    headers: {
-        "Authorization": token
-    }
-})
+        const res = await fetch(`${urlGit}users/${user}`, {
+            headers: {
+                "Authorization": token
+            }
+        });
 
-const dataUser = await res.json();
-    removeload()
+        const userData = await res.json();
+        removeLoad();
 
-    console.log(dataUser.login);
-
-    img.src = dataUser.avatar_url
-    name.textContent = dataUser.name;
-    
-    nick.textContent = dataUser.login
-    nick.href = `https://github.com/${dataUser.login}`
-    nick.setAttribute('target', '_blank')
-
-    createLiBio(dataUser);
-}
-
-
-function removeload() {
- 
-    listBio.replaceChildren();
-    img.classList.remove('hidden');
-    icongit.classList.remove('hidden');
-    name.classList.remove('skeleton-name');
-    nickLink.classList.remove('skeleton-link');
-    nick.classList.remove('skeleton-link');
-}
-
-
-
-
-const getReposUser = async () => {
-    const res = await fetch(`${urlGit}users/${user}/repos?sort=update`, {
-        headers: {
-            "Authorization": token
+        const profile = {
+            img: userData.avatar_url,
+            name: userData.name,
+            user: userData.login
         }
-    })
 
-    const dataRepos = await res.json();
+        const bio = {
+            location: userData.location,
+            company: userData.company,
+            blog: userData.blog,
+            email: userData.email,
+            twitter: userData.twitter_username,
+            fwer: userData.followers,
+            fwing: userData.following,
+            repos: userData.public_repos,
+            gists: userData.public_gists,
+        } 
 
-    console.log(dataRepos);
+        getProfile(profile);
+        getBio(userData);
+        getList(bio);
+        getDate(userData);
+        console.log(userData);
 }
 
-function createLiBio(data) {
 
-    const userData = {
-        bio: data.bio,
-        Location: data.location,
-        Company: data.company,
-        Blog: data.blog,
-        Twitter: data.twitter_username,
-        Following: data.following,
-        Followers: data.followers,
-        Repos: data.public_repos,
-        Gists: data.public_gists,
-        created_at: new Date(data.created_at).getFullYear(),
+function getProfile(profile) {
+    username.href = urlUser + profile.user;
+    createPerfilImg(profile.img);
+    name.textContent = profile.name;
+    CreateUsername(profile.user);
+}
+
+function getBio(bio) {
+    if(bio.bio) {
+        const li = createText(bio.bio); 
+        listBio.appendChild(li);
     }
+}
+
+function getList(bio) {
+
+
+    Object.entries(bio).forEach(([key, value]) => {
+        console.log(key, value);
+        
+        if (key === 'location' && value) {
+            const li = createItem('Localização:', value, 'normal');
+            listBio.appendChild(li);
+
+            return;
+        }
+
+        if (key === 'company' && value) {
+            const li = createItem('Compania:', value, 'normal');
+            listBio.appendChild(li);
+
+            return;
+        }
+        if (key === 'blog' && value) {
+            const li = createItem('Website:', value, 'link', value);
+            listBio.appendChild(li);
+
+            return;
+        }
+        if (key === 'email' && value) {
+            const li = createItem('Email:', value, 'normal');
+            listBio.appendChild(li);
+
+            return;
+        }
+        if (key === 'twitter' && value) {
+            const li = createItem('Twitter:', value, 'link', `https://twitter.com/${value}`);
+            listBio.appendChild(li);
+
+            return;
+        }
+        if (key === 'fwer' && value) {
+            const li = createItem('Seguidores:', value, 'normal');
+            listBio.appendChild(li);
+
+            return;
+        }
+        if (key === 'fwing' && value) {
+            const li = createItem('Seguindo:', value, 'normal');
+            listBio.appendChild(li);
+
+            return;
+        }
+        if (key === 'repos' && value) {
+            const li = createItem('Repos:', value, 'normal' );
+            listBio.appendChild(li);
+
+            return;
+        }
+        if (key === 'gists') {
+            const li = createItem('Gists:', value, 'normal');
+            listBio.appendChild(li);
+
+            return;
+        }
+    
+
+    });
+    // bio.forEach(() => {
+        
+    // })
+
+    // console.log(bio);
+    
+    // const teste = createItem('location:', bio.location);
+
+    // listBio.appendChild(teste);
+}
+
+function createItem(title, content, type, link) {
+    const li = createLiBio();
+    const h3 = createH3Bio();
+
+
+
+    li.classList.add('flex', 'px-[1.1rem]', 'py-[0.75rem]', 'border-b-[1px]');
+    h3.classList.add('w-[100px]', 'text-[#6C7690]', 'font-medium');
 
    
 
-    Object.entries(userData).forEach(([key, value]) => {
+    h3.textContent = title;
+    li.appendChild(h3);
 
-        if (key === 'bio' && value !== null) {
-            const p = createP();
-            p.textContent = value;
-            const li = createLi();
-            li.appendChild(p);
-            listBio.appendChild(li);
-            return;
-        }
 
-        if (key === 'created_at') {
-            const h2 = createH();
-            h2.textContent = `Membro do github desde ${value}`;
-            h2.style.width = 'auto';
-            h2.style.fontWeight = '300';
-            const li = createLi();
-            li.classList.remove('border-b-2');
-            li.appendChild(h2);
-            listBio.appendChild(li);
-            return;
-        }
+    if (type === 'normal') {
+        const p = createPBio();
+        p.classList.add('font-light');
+        p.textContent = content;
+        li.appendChild(p);
+        return li;
+    }
 
-        if (key === 'Blog' && value !== null) {
-            const a = createA();
-            const h2 = createH();
-            const li = createLi();
+    if(type === 'link') {
+        const a = document.createElement('A');
+        a.classList.add('font-light', 'hover:bg-zinc-200', 'duration-200');
+        a.textContent = content;
+        a.href = link;
+        a.target = '_blank'; 
+        li.appendChild(a);
+        return li;
+    }
 
-            h2.textContent = key;
-            li.appendChild(h2);
-            a.textContent = value;
-            a.href = value;
-            a.setAttribute("target", "_blank")
-            li.appendChild(a);
+}
 
-            listBio.appendChild(li);
-            return;
-        }
-
-        if (value) {
-            const p = createP();
-            const h2 = createH();
-            const li = createLi();
-
-            h2.textContent = key;
-            li.appendChild(h2);
-            p.textContent = value;
-            li.appendChild(p);
-
-            listBio.appendChild(li);
-        }
-    });
+function getDate(date) {
+    const data = new Date(date.created_at).getFullYear();
     
+    const li = createYear(data);
+    listBio.appendChild(li);
 }
 
-function createP() {
-    const p = document.createElement('P');
-    p.classList.add('font-light', 'break-words', 'w-full');
-    return p;
-}
+function createText(Text) {
+    const li = createLiBio();
+    const p = createPBio();
 
-function createLi() {
-    const li = document.createElement('LI');
-    li.classList.add('border-b-2', 'border-zinc-100', 'flex', 'lg:flex-col', 'xl:flex-row', 'gap-2', 'p-4');
+    li.id = 'bio';
+    li.classList.add('py-[0.75rem]', 'px-[1.1rem]', 'border-b-[1px]');
+    p.classList.add('break-words'); 
+    p.textContent = Text;
+
+    li.appendChild(p);
+
     return li;
 }
 
-function createH() {
-    const h2 = document.createElement('H2');
-    h2.classList.add('w-[120px]', 'text-zinc-400', 'font-medium', 'text-[1rem]', 'break-words', 'w-full');
-    return h2;
+function createYear(Date) {
+    const li = createLiBio();
+    const h3 = createH3Bio();
+
+    li.classList.add('flex', 'px-[1.1rem]', 'py-[0.75rem]');
+    h3.classList.add('text-[#6C7690]', 'font-light');
+    h3.innerHTML = `Membro do Github desde ${Date}`;
+    li.appendChild(h3);
+
+    return li;
 }
 
-function createA() {
-    const a = document.createElement('a');
-    a.classList.add(
-        "transition",
-        "duration-200",
-        "hover:bg-zinc-200",
-        "inline-block",
-        "rounded-lg",
-        "hover:text-black/100",
-        'break-words', 'w-full'
-    );
+function createLiBio() {
+    const li = document.createElement('LI');
 
-    return a;
+    return li;
 }
 
-// getUser();
-// getReposUser();
+function createH3Bio() {
+    const h3 = document.createElement('H3');
+
+    return h3;
+}
+
+function createPBio() {
+    const p = document.createElement('P');
+
+    return p;
+}
+
+function removeLoad() {
+    listBio.replaceChildren();
+    name.classList.remove('skeleton-name');
+    username.classList.remove('skeleton-link');     
+    iconeGit.classList.remove('hidden');
+    iconeLink.classList.remove('hidden');
+}
+
+function createPerfilImg(src) {
+    const img = document.createElement('IMG');
+
+    img.id = 'imgPerfil';
+    img.classList.add('w-full', 'h-full');
+    img.src = src;
+
+    boxImg.appendChild(img);
+}
+
+function CreateUsername(name) {
+
+    const text = document.createTextNode(name);
+    iconeLink.parentNode.insertBefore(text, iconeLink);
+}
+
+
+getUser();
+
